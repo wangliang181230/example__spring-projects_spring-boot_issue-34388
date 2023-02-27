@@ -14,8 +14,8 @@ public class TestController {
 	@Autowired
 	private HttpbinClient httpbinClient;
 
-	@GetMapping("/confirmbug")
-	public String confirmbug() {
+	@GetMapping("/confirm-bug")
+	public String confirmBug() {
 		try {
 			TestInterface proxy = (TestInterface) Proxy.newProxyInstance(
 					this.getClass().getClassLoader(),

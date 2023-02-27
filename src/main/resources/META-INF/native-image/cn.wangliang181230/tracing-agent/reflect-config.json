@@ -146,7 +146,7 @@
     {"name":"delay","parameterTypes":[] }, 
     {"name":"exp","parameterTypes":[] }, 
     {"name":"get","parameterTypes":[] }, 
-    {"name":"confirmbug","parameterTypes":[] }
+    {"name":"confirmBug","parameterTypes":[] }
   ]
 },
 {
