@@ -21,8 +21,8 @@ public class TestController {
 					this.getClass().getClassLoader(),
 					new Class[]{TestInterface.class},
 					(proxy1, method, args) -> {
-						System.out.println(method.getName());
 						if (method.getName().equals("testMethod")) {
+							System.out.println("Do testMethod.");
 							return null;
 						}
 						return method.invoke(proxy1, args);
