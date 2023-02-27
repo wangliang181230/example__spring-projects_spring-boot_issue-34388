@@ -421,6 +421,17 @@ public class AspectJExpressionPointcut extends AbstractExpressionPointcut
 
 	private ShadowMatch getTargetShadowMatch(Method method, Class<?> targetClass) {
 		Method targetMethod = AopUtils.getMostSpecificMethod(method, targetClass);
+		
+		
+		if (targetClass.getName().startsWith("jdk.")) {
+			logger.info("getTargetShadowMatch:" + " targetClass: " + targetClass.getName() + ", targetMethod: " + targetMethod.toGenericString()
+					+ ", targetMethod.getDeclaringClass(): " + targetMethod.getDeclaringClass().getName()
+			);
+		}
+		// According to the above logs:
+		// In `native image`,    the value of `targetMethod.getDeclaringClass()` is the FeignClient interface: `HttpbinClient.class`,
+		// In 'spring-aot-mode', the value of `targetMethod.getDeclaringClass()` is the proxy type: `jdk.proxy4.$Proxy46`.
+
 		if (targetMethod.getDeclaringClass().isInterface()) {
 			// Try to build the most specific interface possible for inherited methods to be
 			// considered for sub-interface matches as well, in particular for proxy classes.
@@ -440,7 +451,7 @@ public class AspectJExpressionPointcut extends AbstractExpressionPointcut
 				catch (Throwable t) {
 					// Catch the exception.
 					// Otherwise, the application will not start in `native-image` .
-					logger.error(Arrays.toString(interfaces) + " for class '"+targetClass.getName()+"' is createCompositeInterface failed", t);
+					logger.error(Arrays.toString(interfaces) + "\r\n for class '"+targetClass.getName()+"' is createCompositeInterface failed", t);
 				}
 			}
 		}
