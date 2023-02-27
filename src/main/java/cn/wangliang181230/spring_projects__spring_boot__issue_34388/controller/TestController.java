@@ -15,7 +15,7 @@ public class TestController {
 	private HttpbinClient httpbinClient;
 
 	@GetMapping("/confirmbug")
-	public String testAopUtils_getMostSpecificMethod_getDeclaringClass() throws NoSuchMethodException {
+	public String confirmbug() {
 		try {
 			TestInterface proxy = (TestInterface) Proxy.newProxyInstance(
 					this.getClass().getClassLoader(),
