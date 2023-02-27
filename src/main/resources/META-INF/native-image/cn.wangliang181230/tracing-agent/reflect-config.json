@@ -145,7 +145,8 @@
   "methods":[
     {"name":"delay","parameterTypes":[] }, 
     {"name":"exp","parameterTypes":[] }, 
-    {"name":"get","parameterTypes":[] }
+    {"name":"get","parameterTypes":[] }, 
+    {"name":"testAopUtils_getMostSpecificMethod_getDeclaringClass","parameterTypes":[] }
   ]
 },
 {
@@ -240,7 +241,8 @@
   "methods":[
     {"name":"getJsonFactory","parameterTypes":[] }, 
     {"name":"readValues","parameterTypes":["com.fasterxml.jackson.core.JsonParser","com.fasterxml.jackson.core.type.ResolvedType"] }, 
-    {"name":"readValues","parameterTypes":["com.fasterxml.jackson.core.JsonParser","com.fasterxml.jackson.core.type.TypeReference"] }
+    {"name":"readValues","parameterTypes":["com.fasterxml.jackson.core.JsonParser","com.fasterxml.jackson.core.type.TypeReference"] }, 
+    {"name":"readValues","parameterTypes":["com.fasterxml.jackson.core.JsonParser","java.lang.Class"] }
   ]
 },
 {
@@ -826,6 +828,9 @@
 {
   "name":"java.lang.Module",
   "queryAllDeclaredMethods":true
+},
+{
+  "name":"java.lang.NoSuchMethodException"
 },
 {
   "name":"java.lang.Object",

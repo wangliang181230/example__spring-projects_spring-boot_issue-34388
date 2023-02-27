@@ -18,7 +18,7 @@ public class TestController {
 	@GetMapping("/confirmbug")
 	public String testAopUtils_getMostSpecificMethod_getDeclaringClass() throws NoSuchMethodException {
 		Class<?> targetClass = httpbinClient.getClass();
-		Method method = targetClass.getMethod("delay");
+		Method method = HttpbinClient.class.getMethod("delay");
 		return AopUtils.getMostSpecificMethod(method, targetClass).getDeclaringClass().getName();
 	}
 
