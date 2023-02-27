@@ -12,6 +12,9 @@ import org.springframework.core.NativeDetector;
 public class ExampleApplication {
 
 	public static void main(String[] args) throws Exception {
+		// Enable spring-aot-mode
+		//System.setProperty("spring.aot.enabled", "true");
+		
 		try {
 			SpringApplication.run(ExampleApplication.class, args);
 		} catch (SpringApplication.AbandonedRunException ignored) {
