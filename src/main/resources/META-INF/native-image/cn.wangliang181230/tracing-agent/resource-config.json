@@ -35,6 +35,9 @@
       "pattern":"\\Qorg/apache/catalina/util/ServerInfo.properties\\E"
     }, 
     {
+      "pattern":"\\Qorg/springframework/boot/web/server/mime-mappings.properties\\E"
+    }, 
+    {
       "pattern":"\\Qorg/springframework/web/util/HtmlCharacterEntityReferences.properties\\E"
     }
   ]},
