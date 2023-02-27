@@ -1,10 +1,9 @@
 package cn.wangliang181230.spring_projects__spring_boot__issue_34388.controller;
 
-import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 
 import cn.wangliang181230.spring_projects__spring_boot__issue_34388.openfeign.HttpbinClient;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
-import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,9 +16,18 @@ public class TestController {
 
 	@GetMapping("/confirmbug")
 	public String testAopUtils_getMostSpecificMethod_getDeclaringClass() throws NoSuchMethodException {
-		Class<?> targetClass = httpbinClient.getClass();
-		Method method = HttpbinClient.class.getMethod("delay");
-		return AopUtils.getMostSpecificMethod(method, targetClass).getDeclaringClass().getName();
+		TestInterface proxy = (TestInterface) Proxy.newProxyInstance(
+				this.getClass().getClassLoader(),
+				new Class[]{TestInterface.class},
+				(proxy1, method, args) -> {
+					System.out.println(method.getName());
+					if (method.getName().equals("testMethod")) {
+						return null;
+					}
+					return method.invoke(proxy1, args);
+				});
+
+		return proxy.getClass().getMethod("testMethod").getName();
 	}
 
 	@SentinelResource("aaaa")

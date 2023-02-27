@@ -158,6 +158,10 @@
   "methods":[{"name":"CGLIB$SET_THREAD_CALLBACKS","parameterTypes":["org.springframework.cglib.proxy.Callback[]"] }]
 },
 {
+  "name":"cn.wangliang181230.spring_projects__spring_boot__issue_34388.controller.TestInterface",
+  "methods":[{"name":"testMethod","parameterTypes":[] }]
+},
+{
   "name":"cn.wangliang181230.spring_projects__spring_boot__issue_34388.openfeign.HttpbinClient",
   "queryAllDeclaredMethods":true,
   "queryAllPublicMethods":true,
