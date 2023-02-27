@@ -1,3 +1,3 @@
 # Introduce
 
-Example for reproducing https://github.com/spring-projects/spring-boot/issues/34388
+Example for reproducing the issue https://github.com/spring-projects/spring-boot/issues/34388
