@@ -16,18 +16,22 @@ public class TestController {
 
 	@GetMapping("/confirmbug")
 	public String testAopUtils_getMostSpecificMethod_getDeclaringClass() throws NoSuchMethodException {
-		TestInterface proxy = (TestInterface) Proxy.newProxyInstance(
-				this.getClass().getClassLoader(),
-				new Class[]{TestInterface.class},
-				(proxy1, method, args) -> {
-					System.out.println(method.getName());
-					if (method.getName().equals("testMethod")) {
-						return null;
-					}
-					return method.invoke(proxy1, args);
-				});
-
-		return proxy.getClass().getMethod("testMethod").getName();
+		try {
+			TestInterface proxy = (TestInterface) Proxy.newProxyInstance(
+					this.getClass().getClassLoader(),
+					new Class[]{TestInterface.class},
+					(proxy1, method, args) -> {
+						System.out.println(method.getName());
+						if (method.getName().equals("testMethod")) {
+							return null;
+						}
+						return method.invoke(proxy1, args);
+					});
+	
+			return proxy.getClass().getMethod("testMethod").getName();
+		} catch (Throwable t) {
+			return t.getClass().getName() + ": " + t.getMessage();
+		}
 	}
 
 	@SentinelResource("aaaa")
