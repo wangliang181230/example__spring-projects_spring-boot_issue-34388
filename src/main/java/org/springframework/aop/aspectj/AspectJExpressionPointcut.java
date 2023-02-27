@@ -451,7 +451,7 @@ public class AspectJExpressionPointcut extends AbstractExpressionPointcut
 				catch (Throwable t) {
 					// Catch the exception.
 					// Otherwise, the application will not start in `native-image` .
-					logger.error(Arrays.toString(interfaces) + "\r\n for class '"+targetClass.getName()+"' is createCompositeInterface failed", t);
+					logger.error("\r\n" + Arrays.toString(interfaces) + "\r\n for class '" + targetClass.getName() + "' is createCompositeInterface failed", t);
 				}
 			}
 		}
