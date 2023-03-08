@@ -5,12 +5,12 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.3</version>
+		<version>3.0.4</version>
 		<relativePath/>
 	</parent>
 
 	<groupId>cn.wangliang181230</groupId>
-	<artifactId>spring-projects_spring-boot_issue-34388</artifactId>
+	<artifactId>example__spring-projects_spring-boot_issue-34388</artifactId>
 	<version>0.1-SNAPSHOT</version>
 
 	<properties>

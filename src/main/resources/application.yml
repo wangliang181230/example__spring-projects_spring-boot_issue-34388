@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: spring-projects_spring-boot_issue-34388
+    name: example__spring-projects_spring-boot_issue-34388
 
 logging:
   file:
